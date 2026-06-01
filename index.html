@@ -124,7 +124,7 @@
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 3rem; padding-top: calc(var(--nav-h) + 2rem);
+    padding: 3rem 3rem 4rem; padding-top: calc(var(--nav-h) + 2rem);
     position: relative; overflow: hidden;
   }
   .hero-bg {
@@ -142,7 +142,13 @@
       linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 80px 80px;
   }
-  .hero-content { position: relative; z-index: 1; max-width: 900px; }
+  .hero-content { position: relative; z-index: 1; width: 100%; }
+  .hero-top { max-width: 900px; }
+  .hero-bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 2rem;
+    margin-top: 2.5rem; position: relative; z-index: 1;
+  }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(190,255,0,0.08);
@@ -170,7 +176,7 @@
   .hero-sub {
     font-size: clamp(0.95rem, 2vw, 1.1rem);
     color: var(--muted); max-width: 500px;
-    line-height: 1.7; margin-bottom: 2.5rem; font-weight: 300;
+    line-height: 1.7; margin-bottom: 2rem; font-weight: 300;
   }
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
 
@@ -212,8 +218,7 @@
     100% { transform: scaleY(0.5) translateY(20px); opacity: 0; }
   }
   .hero-stats {
-    position: absolute; bottom: 3rem; left: 3rem;
-    display: flex; gap: 3rem; z-index: 1;
+    display: flex; gap: 2.5rem; align-items: flex-start; flex-shrink: 0;
   }
   .stat-num {
     font-family: 'Syne', sans-serif;
@@ -440,7 +445,6 @@
     section { padding: 7rem 5rem; }
     nav { padding: 0 5rem; }
     .hero { padding: 5rem 5rem 4rem; }
-    .hero-stats { left: 5rem; }
     .hero-scroll { right: 5rem; }
   }
 
@@ -460,9 +464,10 @@
 
     .hero { padding: 1.5rem; padding-top: calc(var(--nav-h) + 1.5rem); min-height: 100svh; }
     .hero-name { letter-spacing: -2px; }
-    .hero-stats { position: static; margin-top: 3rem; gap: 2rem; flex-wrap: wrap; }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    .hero-stats { gap: 2rem; flex-wrap: wrap; }
     .hero-scroll { display: none; }
-    .hero-cta { flex-direction: column; align-items: flex-start; }
+    .hero-cta { flex-direction: column; align-items: flex-start; width: 100%; }
     .btn-primary, .btn-outline { width: 100%; justify-content: center; }
 
     section { padding: 4rem 1.5rem; }
@@ -533,30 +538,34 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge">Available for opportunities</div>
-    <h1 class="hero-name">
-      Thami<br>
-      <span class="accent">Dwane</span>
-    </h1>
-    <p class="hero-sub">Junior Software Developer crafting full-stack experiences — from Johannesburg, with code.</p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn-primary">View my work ↓</a>
-      <a href="#contact" class="btn-outline">Get in touch</a>
-      <a href="https://github.com/Thamidwan" target="_blank" class="btn-outline">GitHub ↗</a>
+    <div class="hero-top">
+      <div class="hero-badge">Available for opportunities</div>
+      <h1 class="hero-name">
+        Thami<br>
+        <span class="accent">Dwane</span>
+      </h1>
+      <p class="hero-sub">Junior Software Developer crafting full-stack experiences — from Johannesburg, with code.</p>
     </div>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">1<span>+</span></div>
-      <div class="stat-label">Years experience</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">5<span>+</span></div>
-      <div class="stat-label">Projects built</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">2</div>
-      <div class="stat-label">Hackathons</div>
+    <div class="hero-bottom">
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View my work ↓</a>
+        <a href="#contact" class="btn-outline">Get in touch</a>
+        <a href="https://github.com/Thamidwan" target="_blank" class="btn-outline">GitHub ↗</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">1<span>+</span></div>
+          <div class="stat-label">Years experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5<span>+</span></div>
+          <div class="stat-label">Projects built</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Hackathons</div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="hero-scroll">Scroll<div class="scroll-line"></div></div>
